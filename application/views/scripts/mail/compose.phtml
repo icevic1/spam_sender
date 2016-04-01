@@ -1,0 +1,42 @@
+<div class="contest-holder">
+	<div class="cnt_hd1">
+		<span class="cnt_title">Send to: <?php echo count($this->mailsList);?> | <?php echo Application_Model_Maillistdb::countSent(); ?> - sent | <?php echo Application_Model_Maillistdb::countUnsubscribe(); ?> - usubscribed</span>
+	</div>
+	<div style="padding:0 20px;">
+		<form action="" method="post">
+			<table cellspacing="5" cellpadding="1" class="list_trans" style="width:1000px;">
+				<tr><td>TEST Send to: <input type="checkbox" name="testSend" value="1" <?php echo ((isset($this->statInfo['id']))? '': 'checked="checked"');?>/> test mail <input type="text" name="testMail" value="" /><br />
+						New send to all: <input type="checkbox" name="newSend" value="1" /><br />
+						With-Out HTML (fara html): <input type="checkbox" name="withOutHtml" value="1" <?php echo ((empty($this->statInfo['withOutHtml']))? '': 'checked="checked"');?> /><br />
+						Sample HTML (fara header/footer): <input type="checkbox" name="withSampleHtml" value="1" <?php echo ((empty($this->statInfo['withSampleHtml']))? '': 'checked="checked"');?> /><br />
+						</td></tr>
+				<tr><td><b>From:</b> <?php echo $this->mailFrom;?></td></tr>
+				<tr><th align="left">Subject</th></tr>
+				<tr><td align="left"><input type="text" name="mailSubject" style="width: 98%;" value="<?php echo ((!empty($this->statInfo['mailSubject']))? $this->statInfo['mailSubject']: '');?>"/></td></tr>
+				<tr><th align="left">Message</th></tr>
+				<tr><td align="left"></td></tr>
+			</table>
+			<table cellpadding="0" cellspacing="0" class="list_trans">
+			<tr><td style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; line-height: 1.5;">
+				<textarea rows="6" cols="100" name="mailMessage"><?php echo ((!empty($this->statInfo['mailMessage']))? $this->statInfo['mailMessage']: '');?></textarea>
+				<script>
+	                CKFinder.setupCKEditor( null, '<?php echo $this->fullUrl;?>/static/ckfinder/' );
+	                CKEDITOR.replace( 'mailMessage', {
+							extraPlugins : 'docprops',
+							toolbar: 'Custom',
+							height: 300
+						});
+	            </script>
+				--------------------------------------------
+				<p><em><small>
+				Contacte: MD-2005 mun.Chisinau str.Puskin 28 tel: (+373 22) 819-819 office@gamaavia.md Manager- S. CAROLINA Ore de lucru: Luni-vineri: 9:00-18:00 Simbata: 09:00-15:00, Duminica: zi de odihna<br />
+				Te rugam nu raspunde la acest mesaj pentru ca a fost trimis de la o adresa nemonitorizata.<br />
+				Daca nu doriti sa mai primiti oferte de la GamaAvia te poti dezabona accesind adresa <a href="<?php echo $this->fullUrl;?>/user/unsubscribe/email/b3JsZXRjaGkudmljdG9yQGdtYWlsLmNvbQ==" target="_blank"><?php echo $this->fullUrl;?>/contact/unsubscribe/email/b3JsZXRjaGkudmljdG9yQGdtYWlsLmNvbQ==</a>
+				</small></em></p>
+			</td>
+			</tr>
+			</table>
+			<input type="submit" value="send" />
+		</form>
+	</div>
+</div>

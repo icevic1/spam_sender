@@ -1,0 +1,40 @@
+<h3>Search result</h3>
+
+<div class="list-holder">
+
+	<form action="<?php echo $this->url(array('controller'=>'mail', 'action' => 'index'), 'default', true) ?>" name="mail_search" method="post">
+		<em>mail:</em>
+		<input type="text" name="email" value="<?php echo (isset($this->params['email']))? $this->params['email']:''; ?>" style="width: 180px;" />
+		<input type="checkbox" name="is_sent" <?php echo (isset($this->params['is_sent']))? 'checked="checked"':''; ?> /> isSent
+		<input type="checkbox" name="is_sent" <?php echo (isset($this->params['unsubscribe']))? 'checked="checked"':''; ?> /> unsubscribe
+		<input type="submit" value="Search">
+		<span class="reset-fields"><a href="<?php echo $this->url(array('controller'=>'mail', 'action' => 'index'), 'default', true) ?>">Reset</a></span>
+		<em>Total: <?php echo $this->listResult->getTotalItemCount(); ?></em>
+	</form>
+	<hr />
+	<table class="list-colored" align="left" border="1" cellpadding="0" cellspacing="0" style="width: 600px;">
+		<thead><tr><th scope="col">#</th>
+			<th scope="col">email</th>
+			<th scope="col">domain</th>
+			<th scope="col">isSent</th>
+			<th scope="col">unsubscribe</th>
+			<th scope="col">action</th></tr>
+		</thead>
+		<tbody>
+		<?php foreach ($this->listResult as $item) :?>
+			<tr><td><?php echo $item['id'];?></td>
+				<td><?php echo $item['email'];?></td>
+				<td><?php echo $item['domain'];?></td>
+				<td><?php echo $item['is_sent'];?></td>
+				<td><?php echo $item['unsubscribe'];?></td>
+				<td><a href="<?php echo $this->url(array('controller'=>'mail', 'action' => 'delete', 'id'=>$item['id']), 'default', true) ?>">Delete</a></td>
+			</tr>
+		<?php endforeach;?>
+		</tbody>
+	</table>
+	<div class="lybrary-paging"><?php
+		echo $this->paginationControl($this->listResult, 'Sliding', 'partials/pagination_control.phtml',
+				array('route'=>'default', 'params' => $this->params),true); ?>
+	</div>
+</div>
+

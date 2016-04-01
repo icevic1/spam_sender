@@ -1,0 +1,72 @@
+2013-06-07T10:51:45+03:00 CRIT (2): Application error: exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1 no such table: users' in D:\work\bogdania.md\gamasend.md\library\Zend\Db\Statement\Pdo.php:58
+Stack trace:
+#0 D:\work\bogdania.md\gamasend.md\library\Zend\Db\Statement\Pdo.php(58): PDO->prepare('SELECT "users"....')
+#1 D:\work\bogdania.md\gamasend.md\library\Zend\Db\Statement.php(115): Zend_Db_Statement_Pdo->_prepare('SELECT "users"....')
+#2 D:\work\bogdania.md\gamasend.md\library\Zend\Db\Adapter\Pdo\Abstract.php(184): Zend_Db_Statement->__construct(Object(Zend_Db_Adapter_Pdo_Sqlite), 'SELECT "users"....')
+#3 D:\work\bogdania.md\gamasend.md\library\Zend\Db\Adapter\Abstract.php(479): Zend_Db_Adapter_Pdo_Abstract->prepare('SELECT "users"....')
+#4 D:\work\bogdania.md\gamasend.md\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#5 D:\work\bogdania.md\gamasend.md\library\Zend\Db\Adapter\Abstract.php(737): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select), Array)
+#6 D:\work\bogdania.md\gamasend.md\library\Zend\Auth\Adapter\DbTable.php(480): Zend_Db_Adapter_Abstract->fetchAll(Object(Zend_Db_Select))
+#7 D:\work\bogdania.md\gamasend.md\library\Zend\Auth\Adapter\DbTable.php(369): Zend_Auth_Adapter_DbTable->_authenticateQuerySelect(Object(Zend_Db_Select))
+#8 D:\work\bogdania.md\gamasend.md\library\Zend\Auth.php(117): Zend_Auth_Adapter_DbTable->authenticate()
+#9 D:\work\bogdania.md\gamasend.md\application\controllers\UserController.php(59): Zend_Auth->authenticate(Object(Zend_Auth_Adapter_DbTable))
+#10 D:\work\bogdania.md\gamasend.md\library\Zend\Controller\Action.php(516): UserController->authAction()
+#11 D:\work\bogdania.md\gamasend.md\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('authAction')
+#12 D:\work\bogdania.md\gamasend.md\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 D:\work\bogdania.md\gamasend.md\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#14 D:\work\bogdania.md\gamasend.md\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#15 D:\work\bogdania.md\gamasend.md\public\index.php(25): Zend_Application->run()
+#16 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[HY000]: General error: 1 no such table: users' in D:\work\bogdania.md\gamasend.md\library\Zend\Db\Statement\Pdo.php:61
+Stack trace:
+#0 D:\work\bogdania.md\gamasend.md\library\Zend\Db\Statement.php(115): Zend_Db_Statement_Pdo->_prepare('SELECT "users"....')
+#1 D:\work\bogdania.md\gamasend.md\library\Zend\Db\Adapter\Pdo\Abstract.php(184): Zend_Db_Statement->__construct(Object(Zend_Db_Adapter_Pdo_Sqlite), 'SELECT "users"....')
+#2 D:\work\bogdania.md\gamasend.md\library\Zend\Db\Adapter\Abstract.php(479): Zend_Db_Adapter_Pdo_Abstract->prepare('SELECT "users"....')
+#3 D:\work\bogdania.md\gamasend.md\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#4 D:\work\bogdania.md\gamasend.md\library\Zend\Db\Adapter\Abstract.php(737): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select), Array)
+#5 D:\work\bogdania.md\gamasend.md\library\Zend\Auth\Adapter\DbTable.php(480): Zend_Db_Adapter_Abstract->fetchAll(Object(Zend_Db_Select))
+#6 D:\work\bogdania.md\gamasend.md\library\Zend\Auth\Adapter\DbTable.php(369): Zend_Auth_Adapter_DbTable->_authenticateQuerySelect(Object(Zend_Db_Select))
+#7 D:\work\bogdania.md\gamasend.md\library\Zend\Auth.php(117): Zend_Auth_Adapter_DbTable->authenticate()
+#8 D:\work\bogdania.md\gamasend.md\application\controllers\UserController.php(59): Zend_Auth->authenticate(Object(Zend_Auth_Adapter_DbTable))
+#9 D:\work\bogdania.md\gamasend.md\library\Zend\Controller\Action.php(516): UserController->authAction()
+#10 D:\work\bogdania.md\gamasend.md\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('authAction')
+#11 D:\work\bogdania.md\gamasend.md\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 D:\work\bogdania.md\gamasend.md\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#13 D:\work\bogdania.md\gamasend.md\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#14 D:\work\bogdania.md\gamasend.md\public\index.php(25): Zend_Application->run()
+#15 {main}
+
+Next exception 'Zend_Auth_Adapter_Exception' with message 'The supplied parameters to Zend_Auth_Adapter_DbTable failed to produce a valid sql statement, please check table and column names for validity.' in D:\work\bogdania.md\gamasend.md\library\Zend\Auth\Adapter\DbTable.php:490
+Stack trace:
+#0 D:\work\bogdania.md\gamasend.md\library\Zend\Auth\Adapter\DbTable.php(369): Zend_Auth_Adapter_DbTable->_authenticateQuerySelect(Object(Zend_Db_Select))
+#1 D:\work\bogdania.md\gamasend.md\library\Zend\Auth.php(117): Zend_Auth_Adapter_DbTable->authenticate()
+#2 D:\work\bogdania.md\gamasend.md\application\controllers\UserController.php(59): Zend_Auth->authenticate(Object(Zend_Auth_Adapter_DbTable))
+#3 D:\work\bogdania.md\gamasend.md\library\Zend\Controller\Action.php(516): UserController->authAction()
+#4 D:\work\bogdania.md\gamasend.md\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('authAction')
+#5 D:\work\bogdania.md\gamasend.md\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#6 D:\work\bogdania.md\gamasend.md\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#7 D:\work\bogdania.md\gamasend.md\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#8 D:\work\bogdania.md\gamasend.md\public\index.php(25): Zend_Application->run()
+#9 {main}
+2016-04-01T20:54:29+02:00 CRIT (2): Page not found: exception 'Zend_Controller_Dispatcher_Exception' with message 'Invalid controller specified (favicon.ico)' in E:\work\gamasend.md\library\Zend\Controller\Dispatcher\Standard.php:248
+Stack trace:
+#0 E:\work\gamasend.md\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 E:\work\gamasend.md\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 E:\work\gamasend.md\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 E:\work\gamasend.md\public\index.php(25): Zend_Application->run()
+#4 {main}
+2016-04-01T20:54:29+02:00 CRIT (2): Page not found: exception 'Zend_Controller_Dispatcher_Exception' with message 'Invalid controller specified (favicon.ico)' in E:\work\gamasend.md\library\Zend\Controller\Dispatcher\Standard.php:248
+Stack trace:
+#0 E:\work\gamasend.md\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 E:\work\gamasend.md\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 E:\work\gamasend.md\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 E:\work\gamasend.md\public\index.php(25): Zend_Application->run()
+#4 {main}
+2016-04-01T20:55:32+02:00 CRIT (2): Page not found: exception 'Zend_Controller_Dispatcher_Exception' with message 'Invalid controller specified (admin)' in E:\work\gamasend.md\library\Zend\Controller\Dispatcher\Standard.php:248
+Stack trace:
+#0 E:\work\gamasend.md\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 E:\work\gamasend.md\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 E:\work\gamasend.md\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 E:\work\gamasend.md\public\index.php(25): Zend_Application->run()
+#4 {main}

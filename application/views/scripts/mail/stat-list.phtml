@@ -1,0 +1,30 @@
+<h3>Search result</h3>
+
+<div class="list-holder">
+
+	<hr />
+	<table class="list-colored" align="left" border="1" cellpadding="0" cellspacing="0" style="width: 600px;">
+		<thead><tr><th scope="col">#</th>
+			<th scope="col">subject</th>
+			<th scope="col">withouthtml</th>
+			<th scope="col">withsamplehtml</th>
+			<th scope="col">sent count</th>
+			<th scope="col">created</th>
+			<th scope="col">status</th></tr>
+		</thead>
+		<tbody>
+		<?php foreach ($this->listResult as $item) :?>
+			<tr><td><?php echo $item['id'];?></td>
+				<td><?php echo $item['mailSubject'];?></td>
+				<td><?php echo $item['withOutHtml'];?></td>
+				<td><?php echo $item['withSampleHtml'];?></td>
+				<td><?php echo $item['sent_count'];?></td>
+				<td><?php echo $item['created'];?></td>
+				<td><?php echo $item['status'];?></td>
+				<td><a href="<?php echo $this->url(array('controller'=>'mail', 'action' => 'compose', 'statId'=>$item['id']), 'default', true) ?>">Resend</a></td>
+			</tr>
+		<?php endforeach;?>
+		</tbody>
+	</table>
+</div>
+

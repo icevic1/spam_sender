@@ -1,0 +1,38 @@
+<?php echo $this->doctype(); ?>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Gama Avia - sender</title>
+  <?php 
+  	echo $this->headMeta().PHP_EOL;
+    echo $this->headLink().PHP_EOL;
+    echo $this->headStyle().PHP_EOL;
+    echo $this->headScript().PHP_EOL;
+    echo $this->headLink()->appendStylesheet($this->serverUrl() . $this->baseUrl().'/static/css/global.css')
+   ?>
+</head>
+<body>
+<div id="header" style="background-color: #EEEEEE; height: 30px;">
+    <div id="header-logo" style="float: left;">
+    <?php if (Zend_Auth::getInstance()->hasIdentity()) :?>
+        <b><?php echo $this->pageTitle;?></b>
+        <a href="<?php echo $this->url(array('controller'=>'mail', 'action' => 'stat-list'), 'default', true) ?>">List</a> /<a href="<?php echo $this->url(array('controller'=>'mail', 'action' => 'compose'), 'default', true) ?>">Compose</a> |
+        <a href="<?php echo $this->url(array('controller'=>'mail', 'action' => 'index'), 'default', true) ?>">MailList Search/Delete</a> |
+        <a href="<?php echo $this->url(array('controller'=>'mail', 'action' => 'add'), 'default', true) ?>">Add</a> |
+        <a href="<?php echo $this->url(array('controller'=>'mail', 'action' => 'import'), 'default', true) ?>">Import CSV</a>
+    <?php endif;?>
+    </div>
+    <div id="header-navigation" style="float: right; padding-right:20px;">
+    	<?php if (Zend_Auth::getInstance()->hasIdentity()) :?>
+    	<a href="<?php echo $this->url(array('controller'=>'user', 'action'=>'logout'), 'default', true) ?>">Log-Out</a>
+    	<?php else :?>
+        <a href="<?php echo $this->url(array('controller'=>'user', 'action' => 'login'), 'default', true) ?>">Log-In</a>
+        <?php endif;?>
+        
+    </div>
+</div>
+
+<?php echo $this->layout()->content ?>
+
+</body>
+</html>

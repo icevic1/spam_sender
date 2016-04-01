@@ -1,0 +1,45 @@
+<?php if ($this->pageCount) :?>
+	<div class="paginationControl">
+		<div class="paging_cnt">
+		
+		<!-- First page link -->
+		<?php if (isset($this->previous)): ?>
+			<a class="first_active page_number" id="page-<?php echo $this->first;?>" href="<?php echo $this->url(array_merge((array)$this->params, array('page' => $this->first)), $this->route, true); ?>"></a>
+		<?php else: ?>
+			<span class="first_inactive disabled"></span>
+		<?php endif; ?> 
+		
+		<!-- Previous page link -->		
+		<?php if (isset($this->previous)): ?>
+			<a class="previous_active page_number" id="page-<?php echo $this->previous;?>" href="<?php echo $this->url(array_merge((array)$this->params, array('page' => $this->previous)), $this->route, true); ?>"></a>
+		<?php else: ?>
+			<span class="previous_inactive disabled"></span>
+		<?php endif; ?>
+		
+		<!-- Numbered page links -->
+		<?php foreach ($this->pagesInRange as $key => $page) :?>
+			<?php if ($page != $this->current) :?>
+				<a class="page_number" id="page-<?php echo $page;?>" href="<?php echo $this->url(array_merge((array)$this->params, array('page' => $page)), $this->route, true); ?>"><?php echo $page; ?></a>
+					<?php if ($key != end($this->pagesInRange)) :?><?php endif;?>
+			<?php else: ?>
+				<span class="active"><?php echo $page; ?></span>
+				<?php if ($key != end($this->pagesInRange)) :?><?php endif;?>
+			<?php endif; ?>
+		<?php endforeach; ?>
+		
+		<!-- Next page link -->
+		<?php if (isset($this->next)): ?>
+			<a class="next_active page_number" id="page-<?php echo $this->next;?>" href="<?php echo $this->url(array_merge((array)$this->params, array('page' => $this->next)), $this->route, true); ?>"></a>
+		<?php else :?>
+			<span class="next_inactive disabled"></span>
+		<?php endif; ?>
+		
+		<!-- Last page link -->
+		<?php if (isset($this->next)): ?>
+			<a class="last_active page_number" id="page-<?php echo $this->last;?>" href="<?php echo $this->url(array_merge((array)$this->params, array('page' => $this->last)), $this->route, true); ?>"></a>
+		<?php else: ?>
+			<span class="last_inactive disabled"></span>
+		<?php endif; ?> 
+		</div>
+	</div>
+<?php endif; ?>
